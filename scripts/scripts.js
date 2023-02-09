@@ -123,12 +123,11 @@ const createCardElement = (data) => {
   cardElement.querySelector(
     ".card__image"
   ).style.backgroundImage = `url('${data.link}')`;
-  cardElement.querySelector(".card__title").textContent = data.name;
 
   cardElement
     .querySelector(".card__like-button")
     .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("card__active-button");
+      evt.target.classList.toggle("card__like-button");
     });
 
   deleteButton.addEventListener("click", () => {
@@ -137,7 +136,7 @@ const createCardElement = (data) => {
 
   imagePreview.addEventListener("click", function () {
     previewCardImage.src = data.link;
-    previewCardImage.alt = `'Photo of ${data.name}'`;
+    previewCardImage.alt = "Photo of ${data.name}";
     previewCardName.textContent = data.name;
     toggleModalVisibility(previewImagePopup);
   });
