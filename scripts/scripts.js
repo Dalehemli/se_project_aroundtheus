@@ -115,26 +115,25 @@ const createCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  const imagePreview = cardElement.querySelector(".cardImage");
+  const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
 
   cardTitle.textContent = data.name;
 
-  cardElement.querySelector(
-    ".cardImage"
-  ).style.backgroundImage = `url('${data.link}')`;
+  cardElement.querySelector(".card__image");
+  cardImage.style.backgroundImage = `url('${data.link}')`;
 
   cardElement
     .querySelector(".card__like-button")
     .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("card__like-button");
+      evt.target.classList.toggle("card__like-button_active");
     });
 
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
-  // Hi, I couldn't get the eventlistener at the global scale like asked. I couldn't get it to work when I tried to figure out how to change it.
-  imagePreview.addEventListener("click", function () {
+
+  cardImage.addEventListener("click", function () {
     previewCardImage.src = data.link;
     previewCardImage.alt = `Photo of ${data.name}`;
     previewCardName.textContent = data.name;
