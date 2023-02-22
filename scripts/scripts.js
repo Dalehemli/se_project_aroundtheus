@@ -133,7 +133,7 @@ const createCardElement = (data) => {
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
-
+  // Hi, I couldn't get the eventlistener at the global scale like asked. I couldn't get it to work when I tried to figure out how to change it.
   imagePreview.addEventListener("click", function () {
     previewCardImage.src = data.link;
     previewCardImage.alt = `Photo of ${data.name}`;
