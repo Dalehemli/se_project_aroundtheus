@@ -115,13 +115,13 @@ const createCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  const imagePreview = cardElement.querySelector(".card__image");
-  const imagePreviewTitle = cardElement.querySelector(".card__title");
+  const imagePreview = cardElement.querySelector(".cardImage");
+  const cardTitle = cardElement.querySelector(".card__title");
 
-  imagePreviewTitle.textContent = data.name;
+  cardTitle.textContent = data.name;
 
   cardElement.querySelector(
-    ".card__image"
+    ".cardImage"
   ).style.backgroundImage = `url('${data.link}')`;
 
   cardElement
@@ -136,7 +136,7 @@ const createCardElement = (data) => {
 
   imagePreview.addEventListener("click", function () {
     previewCardImage.src = data.link;
-    previewCardImage.alt = "Photo of ${data.name}";
+    previewCardImage.alt = `Photo of ${data.name}`;
     previewCardName.textContent = data.name;
     toggleModalVisibility(previewImagePopup);
   });

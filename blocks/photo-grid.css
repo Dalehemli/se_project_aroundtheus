@@ -6,7 +6,7 @@
 
 .photo-grid__cards {
   display: grid;
-  max-width: 880px;
+  width: 880px;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 20px;

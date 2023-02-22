@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.card__image {
+.cardImage {
   width: 100%;
   height: 282px;
   object-fit: contain;
@@ -18,6 +18,7 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   cursor: pointer;
+  background-size: cover;
 }
 
 .card__info {
@@ -60,7 +61,7 @@
 }
 
 .card__like-button:active {
-  background: #000;
+  background: url("../images/Union.svg");
 }
 
 .card__delete-button {
