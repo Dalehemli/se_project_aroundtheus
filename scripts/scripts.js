@@ -86,6 +86,9 @@ function handleCreateFormSubmit(evt) {
 
   toggleModalVisibility(createPopupWindow);
   createForm.reset();
+
+  const buttonElement = createPopupWindow.querySelector(".popup__save-button");
+  disableSubmitButton(buttonElement, "popup__button_disabled");
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);

@@ -148,6 +148,11 @@
   border-color: red;
 }
 
+/* .popup__button_disabled {
+  background: #e5e5e5;
+  cursor: default;
+} */
+
 @media screen and (max-width: 500px) {
   .popup__close-button {
     top: -40px;
