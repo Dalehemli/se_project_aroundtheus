@@ -58,7 +58,7 @@
           aria-label="Close"
         ></button>
         <h3 class="popup__title">Edit profile</h3>
-        <form class="popup__form" name="edit-profile">
+        <form class="popup__form" name="edit-profile" novalidate>
           <input
             type="text"
             name="new"
@@ -108,7 +108,7 @@
           <span class="popup__error" id="image-name-error"></span>
           <input
             class="popup__input popup__input_type_link"
-            type="text"
+            type="url"
             name="link"
             placeholder="Image URL"
             id="url-link"
