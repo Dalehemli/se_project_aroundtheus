@@ -111,6 +111,44 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => toggleModalVisibility(popup));
 });
 
+//This is the function where the escape button is pressed to toggle the modal window
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    toggleModalVisibility(openedPopup);
+  }
+}
+function removeEscListener() {
+  document.removeEscListener("keyup", handleEscClose);
+}
+function addEscListener() {
+  document.addEventListener("keyup", handleEscClose);
+}
+function toggleModalVisibility(popupWindow) {
+  popupWindow.classList.toggle("popup_opened");
+  if (popupWindow.classList.contains("popup_opened")) {
+    addEscListener();
+  } else {
+    removeEscListener();
+  }
+}
+
+//This is the function that is the overlay for the modal window
+
+function attachPopupMouseDownHandler(popup, closeButton) {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target === popup || evt.target === closeButton) {
+      toggleModalVisibility(popup);
+    }
+  });
+}
+
+//Attach the event handlers for each popup
+
+attachPopupMouseDownHandler(editPopupWindow);
+attachPopupMouseDownHandler(createPopupWindow);
+attachPopupMouseDownHandler(previewImagePopup);
+
 const createCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);
   const deleteButton = cardElement.querySelector(".card__delete-button");

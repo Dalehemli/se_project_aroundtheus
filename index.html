@@ -64,15 +64,23 @@
             name="new"
             class="popup__input popup__input_type_title"
             placeholder="Your Name"
+            id="card-name"
+            maxlength="40"
+            minlength="2"
             required
           />
+          <span class="popup__error" id="card-name-error"></span>
           <input
             type="text"
             name="description"
             class="popup__input popup__input_type_description"
             placeholder="Your Title"
+            id="description-name"
+            maxlength="200"
+            minlength="2"
             required
           />
+          <span class="popup__error" id="description-name-error"></span>
           <button type="submit" class="popup__save-button" aria-label="Save">
             Save
           </button>
@@ -92,15 +100,21 @@
             type="text"
             name="name"
             placeholder="Name"
+            id="image-name"
+            maxlength="30"
+            minlength="1"
             required
           />
+          <span class="popup__error" id="image-name-error"></span>
           <input
             class="popup__input popup__input_type_link"
             type="text"
             name="link"
             placeholder="Image URL"
+            id="url-link"
             required
           />
+          <span class="popup__error" id="url-link-error"></span>
           <button class="button popup__save-button" type="submit">Save</button>
         </form>
       </div>
@@ -131,5 +145,6 @@
       </li>
     </template>
     <script src="./scripts/scripts.js" type="text/JavaScript" defer></script>
+    <script src="./scripts/validation.js" type="text/JavaScript" defer></script>
   </body>
 </html>

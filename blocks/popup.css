@@ -141,6 +141,13 @@
   width: auto;
 }
 
+.popup__error {
+  color: red;
+  font-size: 12px;
+  line-height: 15px;
+  border-color: red;
+}
+
 @media screen and (max-width: 500px) {
   .popup__close-button {
     top: -40px;
