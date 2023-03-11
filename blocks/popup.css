@@ -1,7 +1,5 @@
 .popup {
   display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
   position: fixed;
   box-sizing: border-box;
   top: 0;
@@ -16,9 +14,6 @@
   justify-content: center;
   align-items: center;
   padding: 19px;
-  visibility: visible;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
 }
 
 .popup__edit-container {
@@ -111,7 +106,6 @@
 
 .popup_opened {
   display: flex;
-  opacity: 1;
 }
 
 .popup__preview-image {
