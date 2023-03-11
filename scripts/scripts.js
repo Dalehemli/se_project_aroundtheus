@@ -115,24 +115,20 @@ closeButtons.forEach((button) => {
 });
 
 //This is the function where the escape button is pressed to toggle the modal window
-function handleEscClose(evt) {
+function handleEscapeButtonPress(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
     toggleModalVisibility(openedPopup);
+    document.removeEventListener("keydown", handleEscapeButtonPress);
   }
 }
-function removeEscListener() {
-  document.removeEscListener("keyup", handleEscClose);
-}
-function addEscListener() {
-  document.addEventListener("keyup", handleEscClose);
-}
+
 function toggleModalVisibility(popupWindow) {
   popupWindow.classList.toggle("popup_opened");
   if (popupWindow.classList.contains("popup_opened")) {
-    addEscListener();
+    document.addEventListener("keydown", handleEscapeButtonPress);
   } else {
-    removeEscListener();
+    document.removeEventListener("keydown", handleEscapeButtonPress);
   }
 }
 
