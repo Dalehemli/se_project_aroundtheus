@@ -15,6 +15,7 @@
   align-items: center;
   padding: 19px;
 }
+/* Hi, I couldn't figure out how to get the smooth transition working for the popups. I see it has to potentially do with "visability", but there are lots of answers. Anymore information I could get to figure out this problem? */
 
 .popup__edit-container {
   background: #ffffff;
