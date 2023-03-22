@@ -61,8 +61,12 @@ const descriptionInputField = editForm.querySelector(
 const nameInputField = createForm.querySelector(".popup__input_type_name");
 const linkInputField = createForm.querySelector(".popup__input_type_link");
 
-function toggleModalVisibility(popupWindow) {
-  popupWindow.classList.toggle("popup_opened");
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
 }
 
 function handleEditFormSubmit(evt) {
@@ -88,7 +92,7 @@ function handleCreateFormSubmit(evt) {
   createForm.reset();
 
   const buttonElement = createPopupWindow.querySelector(".popup__save-button");
-  disableSubmitButton(buttonElement, "popup__button_disabled");
+  disableSubmitButton(buttonElement, "popup__button-disabled");
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
@@ -96,7 +100,6 @@ createForm.addEventListener("submit", handleCreateFormSubmit);
 editButton.addEventListener("click", () => {
   titleInputField.value = profileTitle.textContent;
   descriptionInputField.value = profileDescription.textContent;
-
   toggleModalVisibility(editPopupWindow);
 });
 addButton.addEventListener("click", () => {
@@ -115,20 +118,25 @@ closeButtons.forEach((button) => {
 });
 
 //This is the function where the escape button is pressed to toggle the modal window
-function handleEscapeButtonPress(evt) {
+function handleEscClose(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
     toggleModalVisibility(openedPopup);
-    document.removeEventListener("keydown", handleEscapeButtonPress);
   }
+}
+function removeEscListener() {
+  document.removeEventListener("keyup", handleEscClose);
+}
+function addEscListener() {
+  document.addEventListener("keyup", handleEscClose);
 }
 
 function toggleModalVisibility(popupWindow) {
   popupWindow.classList.toggle("popup_opened");
   if (popupWindow.classList.contains("popup_opened")) {
-    document.addEventListener("keydown", handleEscapeButtonPress);
+    addEscListener();
   } else {
-    document.removeEventListener("keydown", handleEscapeButtonPress);
+    removeEscListener();
   }
 }
 

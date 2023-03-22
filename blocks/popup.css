@@ -1,5 +1,6 @@
 .popup {
-  display: none;
+  /* display: none; */
+  display: flex;
   position: fixed;
   box-sizing: border-box;
   top: 0;
@@ -16,7 +17,7 @@
   padding: 19px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s linear;
 }
 
 .popup__edit-container {
@@ -108,10 +109,9 @@
 }
 
 .popup_opened {
-  display: flex;
+  /* display: flex; */
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
   z-index: 999;
 }
 
@@ -157,6 +157,11 @@
 
 .popup__button-disabled {
   background: #e5e5e5;
+  cursor: default;
+}
+
+.popup__button-disabled:hover {
+  opacity: 1;
   cursor: default;
 }
 
