@@ -47,7 +47,7 @@ const addButton = document.querySelector(".profile__add-button");
 const editCloseButton = document.querySelector(".popup__close-edit");
 const createCloseButton = document.querySelector(".popup__close-create");
 const profileTitle = document.querySelector(".profile__name");
-const profileDescription = document.querySelector(".profile__description");
+const profileDescription = document.querySelector(".profile__title");
 
 const previewImagePopup = document.querySelector(".preview-popup");
 
