@@ -1,3 +1,6 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,15 +28,13 @@ const initialCards = [
   },
 ];
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
-
 // Wrappers
 
 const photoGridWrap = document.querySelector(".photo-grid__cards");
-const editPopupWindow = document.querySelector(".edit-popup");
+
+const editPopupWindow = document.querySelector(".popup");
 const createPopupWindow = document.querySelector(".create-popup");
+
 const editForm = document.querySelector(".popup__edit-container");
 const createForm = document.querySelector(
   ".popup__create-container .popup__form"
@@ -46,10 +47,9 @@ const addButton = document.querySelector(".profile__add-button");
 const editCloseButton = document.querySelector(".popup__close-edit");
 const createCloseButton = document.querySelector(".popup__close-create");
 const profileTitle = document.querySelector(".profile__name");
-const profileDescription = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+
 const previewImagePopup = document.querySelector(".preview-popup");
-const previewCardImage = document.querySelector(".popup__preview-image");
-const previewCardName = document.querySelector(".popup__preview-name");
 
 // Form Data
 
@@ -61,13 +61,26 @@ const descriptionInputField = editForm.querySelector(
 const nameInputField = createForm.querySelector(".popup__input_type_name");
 const linkInputField = createForm.querySelector(".popup__input_type_link");
 
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-}
+/*
+                             Validation
+*/
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-}
+const editFormElement = editPopupWindow.querySelector("#new-card-form");
+const addFormElement = createPopupWindow.querySelector("#add-new");
+
+const validateConfig = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__button-disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+//creates two instances of the FormValidator class and enables validation on two HTML form elements,
+//addFormElement and editFormElement, respectively.
+const addFormValidator = new FormValidator(validateConfig, addFormElement);
+addFormValidator.enableValidation();
+const editFormValidator = new FormValidator(validateConfig, editFormElement);
+editFormValidator.enableValidation();
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
@@ -79,7 +92,6 @@ function handleEditFormSubmit(evt) {
 
 function handleCreateFormSubmit(evt) {
   evt.preventDefault();
-
   renderCard(
     {
       name: nameInputField.value,
@@ -91,29 +103,28 @@ function handleCreateFormSubmit(evt) {
   toggleModalVisibility(createPopupWindow);
   createForm.reset();
 
-  const buttonElement = createPopupWindow.querySelector(".popup__save-button");
-  disableSubmitButton(buttonElement, "popup__button-disabled");
+  addFormValidator.disableSubmitButton();
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
 createForm.addEventListener("submit", handleCreateFormSubmit);
+
 editButton.addEventListener("click", () => {
   titleInputField.value = profileTitle.textContent;
   descriptionInputField.value = profileDescription.textContent;
+
   toggleModalVisibility(editPopupWindow);
 });
+
 addButton.addEventListener("click", () => {
   toggleModalVisibility(createPopupWindow);
 });
 
 const closeButtons = document.querySelectorAll(".popup__close-button");
 
+//.closeButton using the querySelectorAll() method and creates a loop using the forEach() method to iterate over each element.
 closeButtons.forEach((button) => {
-  // find the closest popup
   const popup = button.closest(".popup");
-
-  // button doesnt toggle when in seperate functions
-
   button.addEventListener("click", () => toggleModalVisibility(popup));
 });
 
@@ -130,7 +141,7 @@ function removeEscListener() {
 function addEscListener() {
   document.addEventListener("keyup", handleEscClose);
 }
-
+//toggles the visibility of a modal window element by adding or removing the class popup_opened.
 function toggleModalVisibility(popupWindow) {
   popupWindow.classList.toggle("popup_opened");
   if (popupWindow.classList.contains("popup_opened")) {
@@ -141,59 +152,26 @@ function toggleModalVisibility(popupWindow) {
 }
 
 //This is the function that is the overlay for the modal window
-
-function attachPopupMouseDownHandler(popup, closeButton) {
+function attachPopupMouseDownHandler(popup) {
   popup.addEventListener("mousedown", (evt) => {
-    if (evt.target === popup || evt.target === closeButton) {
+    if (evt.target === popup) {
       toggleModalVisibility(popup);
     }
   });
 }
-
-//Attach the event handlers for each popup
-
+// Attach the event handlers for each popup
 attachPopupMouseDownHandler(editPopupWindow);
 attachPopupMouseDownHandler(createPopupWindow);
 attachPopupMouseDownHandler(previewImagePopup);
 
-const createCardElement = (data) => {
-  const cardElement = cardTemplate.cloneNode(true);
-  const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-
-  cardTitle.textContent = data.name;
-
-  cardElement.querySelector(".card__image");
-  cardImage.style.backgroundImage = `url('${data.link}')`;
-
-  cardElement
-    .querySelector(".card__like-button")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("card__like-button_active");
-    });
-
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImage.addEventListener("click", function () {
-    previewCardImage.src = data.link;
-    previewCardImage.alt = `Photo of ${data.name}`;
-    previewCardName.textContent = data.name;
-    toggleModalVisibility(previewImagePopup);
-  });
-
-  return cardElement;
-};
-
 const renderCard = (data, wrapper) => {
-  const newCard = createCardElement(data);
-
+  const newCard = new Card(data, "#card-template").generateCard();
   wrapper.prepend(newCard);
 };
 
 initialCards.forEach((data) => {
   renderCard(data, photoGridWrap);
 });
+
+// allow Card class to have access to function
+export { toggleModalVisibility };
