@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
     <title>Around The U.S</title>
   </head>
 
@@ -12,7 +12,7 @@
     <header class="header">
       <img
         class="header__logo"
-        src="./images/headerlogo.svg"
+        src="<%=require(./images/headerlogo.svg)%>"
         alt="Around the U.S"
       />
     </header>
@@ -21,7 +21,7 @@
       <section class="profile">
         <img
           class="profile__image"
-          src="./images/profilepic.jpg"
+          src="<%=require(./images/profilepic.jpg)%>"
           alt="profile header image"
         />
 
@@ -50,8 +50,8 @@
       <p class="footer__copyright">© 2022 Around The U.S. Dale Hemli</p>
     </footer>
 
-    <div class="popup edit-popup">
-      <div class="popup__edit-container">
+    <div class="popup edit-popup" id="profile-popup">
+      <div class="popup__modal-container">
         <button
           class="popup__close-button popup__close-edit"
           type="button"
@@ -69,7 +69,7 @@
             name="new"
             class="popup__input popup__input_type_title"
             placeholder="Your Name"
-            id="card-name"
+            id="title"
             maxlength="40"
             minlength="2"
             required
@@ -78,6 +78,7 @@
           <input
             type="text"
             name="description"
+            id="description"
             class="popup__input popup__input_type_description"
             placeholder="Your Title"
             id="description-name"
@@ -92,11 +93,12 @@
         </form>
       </div>
     </div>
-    <div class="popup create-popup">
-      <div class="popup__create-container">
+    <div class="popup create-popup" id="create-popup">
+      <div class="popup__modal-container">
         <button
           type="button"
-          class="popup__close-button popup__close-create"
+          class="popup__close-button"
+          id="popup__close-create"
         ></button>
         <h3 class="popup__title">Add Image</h3>
         <form class="popup__form" name="new" id="add-new">
@@ -105,7 +107,7 @@
             type="text"
             name="name"
             placeholder="Name"
-            id="image-name"
+            id="name"
             maxlength="30"
             minlength="1"
             required
@@ -116,7 +118,7 @@
             type="url"
             name="link"
             placeholder="Image URL"
-            id="url-link"
+            id="link"
             required
           />
           <span class="popup__error" id="url-link-error"></span>
