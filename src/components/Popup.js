@@ -20,10 +20,12 @@ export default class Popup {
   };
 
   setEventListeners() {
-    const popupButtonSet = this._popupElement.querySelector(
+    const popupButton = this._popupElement.querySelector(
       ".popup__close-button"
     );
-    popupButtonSet.addEventListener("click", (evt) => {
+    popupButton.addEventListener("click", () => this.closeModalWindow());
+
+    this._popupElement.addEventListener("click", (evt) => {
       if (evt.target.matches(".popup")) {
         this.closeModalWindow();
       }

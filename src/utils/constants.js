@@ -29,9 +29,8 @@ export const editPopupWindow = document.querySelector(".popup");
 export const createPopupWindow = document.querySelector(".create-popup");
 export const editForm = document.querySelector("#profile-popup");
 // export const editForm = document.querySelector(".popup__edit-container");
-export const createForm = document.querySelector(
-  ".popup__create-container .popup__form"
-);
+
+export const createForm = document.querySelector("#create-popup");
 export const profileButtonReset = document.querySelector(
   ".popup__close-button"
 );
@@ -47,8 +46,8 @@ export const addCardPopupResetButton = document.querySelector(
 );
 export const previewImagePopup = document.querySelector("#preview-popup");
 
-export const titleInputField = editForm.querySelector("#title");
-export const descriptionInputField = editForm.querySelector("#description");
+export const titleInputField = document.querySelector("#title");
+export const descriptionInputField = document.querySelector("#description");
 
 export const nameInputField = createForm.querySelector("#name");
 export const linkInputField = createForm.querySelector("#link");

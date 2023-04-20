@@ -10,19 +10,18 @@ class FormValidator {
     this._buttonElement;
   }
 
-  _showInputError(inputElement, errorMessage) {
-    this._errorMessage = errorMessage;
-    this._errorElement = this._form.querySelector(`#${inputElement.id}-error`);
+  _showInputError(inputElement) {
+    const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
-    this._errorElement.textContent = this._errorMessage;
-    this._errorElement.classList.add(this._errorClass);
+    errorElement.textContent = inputElement.validationMessage;
+    errorElement.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
-    this._errorELement = this._form.querySelector(`#${inputElement.id}-error`);
+    this._errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
-    this._errorELement.classList.remove(this._errorClass);
-    this._errorELement.textContent = "";
+    this._errorElement.classList.remove(this._errorClass);
+    this._errorElement.textContent = "";
   }
 
   _toggleInputError(inputElement) {

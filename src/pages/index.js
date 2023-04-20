@@ -3,7 +3,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
-import PopupwithImage from "../components/PopupWithImage.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import {
   initialCards,
@@ -16,33 +16,6 @@ import {
   createForm,
 } from "../utils/constants.js";
 
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://code.s3.yandex.net/web-code/lago.jpg",
-//   },
-// ];
-
 // Wrappers
 
 //creates two instances of the FormValidator class and enables validation on two HTML form elements,
@@ -54,7 +27,7 @@ const addFormValidator = new FormValidator(validateConfig, createForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const newPopupImage = new PopupWithImage({ popupSelector: "#preview-popup" });
+const newPopupImage = new PopupWithImage({ popupSelector: ".preview-popup" });
 newPopupImage.setEventListeners();
 
 const createCard = (cardData) => {

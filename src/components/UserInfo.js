@@ -9,6 +9,7 @@ export default class UserInfo {
       name: this._nameElement.textContent,
       description: this._jobElement.textContent,
     };
+    return userData;
   }
 
   setUserInfo(name, job) {
