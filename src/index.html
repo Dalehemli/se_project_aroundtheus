@@ -12,7 +12,7 @@
     <header class="header">
       <img
         class="header__logo"
-        src="<'%=require('./images/headerlogo.svg')%>"
+        src="<%=require('./images/headerlogo.svg')%>"
         alt="Around the U.S"
       />
     </header>
@@ -74,7 +74,7 @@
             minlength="2"
             required
           />
-          <span class="popup__error" id="card-name-error"></span>
+          <span class="popup__error" id="title-error"></span>
           <input
             type="text"
             name="description"
@@ -86,7 +86,7 @@
             minlength="2"
             required
           />
-          <span class="popup__error" id="description-name-error"></span>
+          <span class="popup__error" id="description-error"></span>
           <button type="submit" class="popup__save-button" aria-label="Save">
             Save
           </button>
@@ -112,7 +112,7 @@
             minlength="1"
             required
           />
-          <span class="popup__error" id="image-name-error"></span>
+          <span class="popup__error" id="name-error"></span>
           <input
             class="popup__input popup__input_type_link"
             type="url"
@@ -121,7 +121,7 @@
             id="link"
             required
           />
-          <span class="popup__error" id="url-link-error"></span>
+          <span class="popup__error" id="link-error"></span>
           <button
             class="popup__save-button popup__button-disabled"
             type="submit"
@@ -145,7 +145,7 @@
     </div>
     <template id="card-template">
       <li class="card">
-        <div class="card__image"></div>
+        <img class="card__image"></img>
         <button type="button" class="card__delete-button"></button>
         <div class="card__info">
           <h2 class="card__title"></h2>
