@@ -37,7 +37,7 @@ export const profileButtonReset = document.querySelector(
 export const editButton = document.querySelector(".profile__edit-button");
 export const addButton = document.querySelector(".profile__add-button");
 export const editCloseButton = document.querySelector(".popup__close-edit");
-export const createCloseButton = document.querySelector("#popup__close-create");
+export const createCloseButton = document.querySelector(".popup__close-button");
 export const profileTitle = document.querySelector(".profile__name");
 export const profileDescription = document.querySelector(".profile__title");
 
