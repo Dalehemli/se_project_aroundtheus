@@ -135,6 +135,7 @@
   max-height: 75vh;
   padding: 0%;
   width: auto;
+  position: relative;
 }
 
 .popup__error {
