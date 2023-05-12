@@ -29,7 +29,7 @@ import {
 //addFormElement and editFormElement, respectively.
 
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/group-12/cards",
+  baseUrl: "https://around.nomoreparties.co/v1/group-12/",
   headers: {
     authorization: "d1c2c033-dd2f-4b44-be0f-34c3478760b2",
     "Content-Type": "application/json",
@@ -99,7 +99,9 @@ const avatarPopup = new PopupWithForm("#profile-image-edit-popup", (value) => {
 avatarPopup.setEventListeners();
 avatarFormValidator.disableSubmitButton();
 
-const newPopupImage = new PopupWithImage({ popupSelector: "#preview-popup" });
+const newPopupImage = new PopupWithImage({
+  popupSelector: "#preview-popup",
+});
 newPopupImage.setEventListeners();
 
 const deleteCardPopup = new PopupWithConfirmation("#delete-confirm-popup");

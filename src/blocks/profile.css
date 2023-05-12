@@ -15,7 +15,7 @@
 }
 
 .profile__image-edit {
-  background: transparent url();
+  background: transparent url(../images/profileEdit.svg) center no-repeat;
   height: 120px;
   width: 120px;
 }
