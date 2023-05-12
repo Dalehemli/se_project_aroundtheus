@@ -144,6 +144,42 @@
         <h3 class="popup__preview-name"></h3>
       </div>
     </div>
+
+    <div class="popup" id="profile-image-edit-popup">
+      <div class="popup__container-avatar" id="profile-image-edit-container">
+        <button
+          class="popup__close-button"
+          id="profile-image-edit-close"
+        ></button>
+        <p class="popup__title">Change profile picture</p>
+        <form class="popup__form" id="profile-image-form" novalidate>
+          <input
+            class="popup__input"
+            id="profile-image-link"
+            type="url"
+            name="avatar"
+            placeholder="Profile Picture Link"
+            required
+          />
+          <span
+            class="popup__error-avatar"
+            id="profile-image-link-error"
+          ></span>
+          <button class="popup__save-button">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup" id="delete-confirm-popup">
+      <div class="popup__container-delete" id="delete-confirm-container">
+        <button class="popup__close-button" id="delete-confirm-close"></button>
+        <p class="popup__title">Are you sure?</p>
+        <form class="popup__form" id="delete-confirm-form" novalidate>
+          <button class="popup__save-button" id="delete-confirm-button">Yes</button>
+        </form>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <img class="card__image"></img>

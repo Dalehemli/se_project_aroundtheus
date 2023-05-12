@@ -40,6 +40,11 @@ export const editCloseButton = document.querySelector(".popup__close-edit");
 export const createCloseButton = document.querySelector(".popup__close-button");
 export const profileTitle = document.querySelector(".profile__name");
 export const profileDescription = document.querySelector(".profile__title");
+export const avatarEditPopup = document.querySelector(
+  "#profile-image-edit-popup"
+);
+export const profileAvatar = document.querySelector(".profile__image");
+export const avatarButton = document.querySelector(".profile__image-edit");
 
 export const addCardPopupResetButton = document.querySelector(
   ".popup__close-button"
