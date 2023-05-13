@@ -18,6 +18,9 @@
   background: transparent url(../images/profileEdit.svg) center no-repeat;
   height: 120px;
   width: 120px;
+  position: absolute;
+  border: none;
+  opacity: 0;
 }
 
 .profile__image-edit:hover {

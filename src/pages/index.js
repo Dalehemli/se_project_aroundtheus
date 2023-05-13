@@ -75,10 +75,10 @@ const newProfilePopup = new PopupWithForm("#profile-popup", (values) => {
 
 newProfilePopup.setEventListeners();
 
-// avatarButton.addEventListener("click", () => {
-//   avatarFormValidator.disableSubmitButton();
-//   avatarPopup.openModalWindow();
-// });
+avatarButton.addEventListener("click", () => {
+  avatarFormValidator.disableSubmitButton();
+  avatarPopup.openModalWindow();
+});
 
 const avatarPopup = new PopupWithForm("#profile-image-edit-popup", (value) => {
   avatarPopup.renderLoading(true);
